@@ -16,6 +16,10 @@
   &-container {
     max-width: 1100px;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      padding: 0 1rem;
+    }
   }
 
   // ===== TITLE =====
