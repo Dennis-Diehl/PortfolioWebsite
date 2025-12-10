@@ -29,6 +29,9 @@ function Navbar() {
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
         >
+          <span />
+          <span />
+          <span />
         </button>
 
         {/* Navigation Links - Desktop: horizontal, Mobile: dropdown */}
