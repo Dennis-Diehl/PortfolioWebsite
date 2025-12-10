@@ -1,184 +1,191 @@
-/* ============================================
-   NAVBAR - Floating Island Navigation Bar
-   ============================================ */
+// ============================================
+// NAVBAR - Floating Island Navigation Bar
+// ============================================
 
-/* ===== NAVBAR WRAPPER (Outer Container) ===== */
-.navbar {
-  position: fixed;           /* Fixed to viewport */
-  left: 0;
-  right: 0;
-  top: 24px;                 /* Floating effect - gap from top */
-  display: flex;
-  justify-content: center;
-  pointer-events: none;      /* Ignore clicks on wrapper */
-  z-index: 1000;             /* Above other content */
+// ===== MIXINS =====
+@mixin glassmorphism {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* ===== NAVBAR ISLAND (Inner Container) ===== */
-.navbar-container {
-  position: relative;
-  pointer-events: all;    /* Re-enable clicks for interactive elements */
-  width: calc(100% - 2rem);
-  max-width: 1100px;
-  padding: 0.5rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  /* Styling: glassmorphism effect */
-  background: rgba(31, 41, 55, 0.85);  /* Lighter semi-transparent background */
-  backdrop-filter: blur(8px);          /* Blur effect for depth */
-  -webkit-backdrop-filter: blur(8px);  /* Safari support */
-  border-radius: 14px;                 /* Rounded corners */
-  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);  /* Shadow for depth */
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Slightly more visible border */
-}
-
-/* ===== LOGO ===== */
-.navbar-home {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
-  transition: transform 0.2s ease;
-  display: inline-block;
-  height: 40px;  /* Logo container height */
-}
-
-
-.navbar-home:hover {
-  transform: translateY(-3px);  /* Subtle lift effect */
-  color: #9dd0ff;
-}
-
-/* Logo Image Styling */
-.navbar-logo-img {
-  height: 100%;           /* Fill the container */
-  width: auto;            /* Keep aspect ratio */
-  object-fit: contain;    /* Fit image inside container */
-  transition: filter 0.2s ease, transform 0.2s ease;
-  display: block;         /* Remove inline spacing */
-  transform-origin: center; /* Zoom from center instead of top */
-}
-
-.navbar-home:hover .navbar-logo-img {
-  filter: brightness(1.1);  /* Slightly brighter on hover */
-  transform: scale(1.10);   /* Zoom effect - 10% larger */
-}
-
-/* ===== NAVIGATION MENU (Desktop Layout) ===== */
-.nav-menu {
-  display: flex;
+@mixin reset-list {
   list-style: none;
-  gap: 2rem;
   margin: 0;
   padding: 0;
 }
 
-.nav-item {
-  display: inline;
+// ===== BASE STYLES =====
+body {
+  padding-top: 100px;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
 
-.nav-link {
-  color: #d1d5db;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
-  display: inline-block;  /* Enable transform to work */
+// ===== NAVBAR WRAPPER (Outer Container) =====
+.navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 24px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1000;
+
+  // ===== NAVBAR ISLAND (Inner Container) =====
+  &-container {
+    position: relative;
+    pointer-events: all;
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(31, 41, 55, 0.85);
+    @include glassmorphism;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    @media (max-width: 768px) {
+      padding: 0 1rem;
+    }
+  }
+
+  // ===== LOGO =====
+  &-home {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    height: 40px;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  // Logo Image
+  &-logo-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: filter 0.2s ease, transform 0.2s ease;
+    display: block;
+    transform-origin: center;
+
+    .navbar-home:hover & {
+      filter: brightness(1.1);
+      transform: scale(1.10);
+    }
+  }
 }
 
-.nav-link:hover {
-  color: #9dd0ff;           /* Lighter blue on hover */
-  transform: translateY(-3px); /* Lift effect - moves up */
+// ===== NAVIGATION MENU =====
+.nav {
+  // Menu container
+  &-menu {
+    display: flex;
+    @include reset-list;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 2rem);
+      background-color: rgba(7, 10, 14, 0.98);
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+      flex-direction: column;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease, padding 0.28s ease;
+      z-index: 1001;
+
+      &.active {
+        max-height: 360px;
+        padding: 0.5rem 0;
+      }
+    }
+  }
+
+  // Menu item
+  &-item {
+    display: inline;
+
+    @media (max-width: 768px) {
+      padding: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      text-align: center;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  // Menu link
+  &-link {
+    color: #d1d5db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover {
+      color: #9dd0ff;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      display: block;
+      width: 100%;
+      padding: 0.9rem 1.25rem;
+
+      &:hover {
+        transform: none;
+        color: #fff;
+      }
+    }
+  }
 }
 
-/* ===== MENU TOGGLE BUTTON ===== */
+// ===== HAMBURGER MENU BUTTON =====
 .hamburger {
-  display: none;             /* Hidden on desktop */
+  display: none;
   cursor: pointer;
   background: transparent;
   border: none;
   padding: 0.4rem;
   color: #e6eef8;
   transition: color 0.2s ease;
-}
 
-.hamburger:hover {
-  color: #9dd0ff;  /* Lighter blue on hover */
-}
+  &:hover {
+    color: #9dd0ff;
+  }
 
-.hamburger svg {
-  display: block;
-}
+  svg {
+    display: block;
+  }
 
-/* ============================================
-   RESPONSIVE DESIGN - Mobile (< 768px)
-   ============================================ */
-@media (max-width: 768px) {
-  /* Show hamburger button on mobile */
-  .hamburger {
+  @media (max-width: 768px) {
     display: flex;
   }
-
-  .navbar-home:hover {
-    transform: none;  /* Disable lift effect on mobile */
-  }
-
-  /* Mobile menu: hidden by default, dropdown below island */
-  .nav-menu {
-    position: absolute;
-    top: calc(100% + 10px);    /* Below the navbar island */
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 2rem);
-    background-color: rgba(7, 10, 14, 0.98);
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
-    flex-direction: column;
-    gap: 0;
-    max-height: 0;             /* Collapsed state */
-    overflow: hidden;
-    transition: max-height 0.28s ease, padding 0.28s ease;
-    z-index: 1001;
-  }
-
-  /* Menu expanded state: .active class applied */
-  .nav-menu.active {
-    max-height: 360px;
-    padding: 0.5rem 0;
-  }
-
-  .nav-item {
-    padding: 0;  /* Remove padding from li */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    text-align: center;
-    transition: background-color 0.2s ease;
-  }
-
-  .nav-item:hover {
-    background-color: rgba(255, 255, 255, 0.08);  /* Lighter on hover */
-  }
-
-  .nav-link {
-    display: block;  /* Make link fill entire item */
-    width: 100%;
-    padding: 0.9rem 1.25rem;  /* Move padding to link */
-  }
-
-  .nav-link:hover {
-    transform: none;  /* Disable lift effect on mobile */
-    color: #ffffff;
-  }
-
-  .navbar-container {
-    padding: 0 1rem;
-  }
-}
-
-/* ===== BODY PADDING (Reserve space for floating navbar) ===== */
-body {
-  padding-top: 100px;  /* Prevent content from hiding under navbar island */
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
