@@ -1,33 +1,55 @@
+/* ============================================
+   NAVBAR - Floating Island Navigation Bar
+   ============================================ */
+
+/* ===== NAVBAR WRAPPER (Outer Container) ===== */
 .navbar {
-  background-color: #1f2937;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  position: fixed;           /* Fixed to viewport */
+  left: 0;
+  right: 0;
+  top: 24px;                 /* Floating effect - gap from top */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  pointer-events: none;      /* Ignore clicks on wrapper */
+  z-index: 1000;             /* Above other content */
 }
 
-.navbar-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+/* ===== NAVBAR ISLAND (Inner Container) ===== */
+.navbar-container {
+  position: relative;
+  pointer-events: all;    /* Re-enable clicks for interactive elements */
+  width: calc(100% - 2rem);
+  max-width: 1100px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Styling: glassmorphism effect */
+  background: rgba(31, 41, 55, 0.85);  /* Lighter semi-transparent background */
+  backdrop-filter: blur(8px);          /* Blur effect for depth */
+  -webkit-backdrop-filter: blur(8px);  /* Safari support */
+  border-radius: 14px;                 /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);  /* Shadow for depth */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Slightly more visible border */
+}
+
+/* ===== LOGO ===== */
+.navbar-home {
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #fff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
-.navbar-logo:hover {
-  color: #3b82f6;
+.navbar-home:hover {
+  color: #9dd0ff;
+  transform: translateY(-3px);  /* Subtle lift effect */
 }
 
+/* ===== NAVIGATION MENU (Desktop Layout) ===== */
 .nav-menu {
   display: flex;
   list-style: none;
@@ -44,20 +66,99 @@
   color: #d1d5db;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  display: inline-block;  /* Enable transform to work */
 }
 
 .nav-link:hover {
-  color: #3b82f6;
+  color: #9dd0ff;           /* Lighter blue on hover */
+  transform: translateY(-3px); /* Lift effect - moves up */
 }
 
+/* ===== HAMBURGER MENU BUTTON ===== */
+.hamburger {
+  display: none;             /* Hidden on desktop */
+  flex-direction: column;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0.4rem;
+  gap: 4px;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2.5px;
+  background-color: #e6eef8;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  display: block;
+}
+
+/* Hamburger animation: transform into X shape */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(3px, 3px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;  /* Middle line disappears */
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(3px, -3px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - Mobile (< 768px)
+   ============================================ */
 @media (max-width: 768px) {
-  .navbar-container {
-    flex-direction: column;
-    gap: 1rem;
+  /* Show hamburger button on mobile */
+  .hamburger {
+    display: flex;
   }
 
+  /* Mobile menu: hidden by default, dropdown below island */
   .nav-menu {
-    gap: 1rem;
+    position: absolute;
+    top: calc(100% + 10px);    /* Below the navbar island */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    background-color: rgba(7, 10, 14, 0.98);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;             /* Collapsed state */
+    overflow: hidden;
+    transition: max-height 0.28s ease, padding 0.28s ease;
+    z-index: 1001;
   }
+
+  /* Menu expanded state: .active class applied */
+  .nav-menu.active {
+    max-height: 360px;
+    padding: 0.5rem 0;
+  }
+
+  .nav-item {
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: center;
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+  }
+}
+
+/* ===== BODY PADDING (Reserve space for floating navbar) ===== */
+body {
+  padding-top: 100px;  /* Prevent content from hiding under navbar island */
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
