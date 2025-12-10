@@ -150,18 +150,26 @@
     padding: 0.5rem 0;
   }
 
-  .nav-link:hover {
-    transform: none;  /* Disable lift effect on mobile */
-  }
-
   .nav-item {
-    padding: 0.9rem 1.25rem;
+    padding: 0;  /* Remove padding from li */
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     text-align: center;
+    transition: background-color 0.2s ease;
   }
 
-  .nav-item:last-child {
-    border-bottom: none;
+  .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);  /* Lighter on hover */
+  }
+
+  .nav-link {
+    display: block;  /* Make link fill entire item */
+    width: 100%;
+    padding: 0.9rem 1.25rem;  /* Move padding to link */
+  }
+
+  .nav-link:hover {
+    transform: none;  /* Disable lift effect on mobile */
+    color: #ffffff;
   }
 
   .navbar-container {
