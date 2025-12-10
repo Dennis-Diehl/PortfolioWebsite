@@ -19,19 +19,32 @@ function Navbar() {
       <div className="navbar-container">
         {/* Logo / Brand - Link to home */}
         <Link to="/" className="navbar-home">
-          Dennis D.
+          <img 
+            src="/src/assets/images/Logo_D.png"
+            alt="Dennis Starting Page"
+            className="navbar-logo-img"
+          />
         </Link>
 
-        {/* Hamburger Menu Button - Only visible on mobile devices */}
+        {/* Menu Toggle Button - Shows hamburger (☰) closed, X (✕) when open */}
         <button
-          className={`hamburger ${isOpen ? 'active' : ''}`}
+          className="hamburger"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
         >
-          <span />
-          <span />
-          <span />
+          {isOpen ? (
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <line x1="3" y1="3" x2="21" y2="21" strokeLinecap="round" />
+                <line x1="21" y1="3" x2="3" y2="21" strokeLinecap="round" />
+            </svg>
+            ) : (
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <line x1="3" y1="6" x2="21" y2="6" strokeLinecap="round" />
+                <line x1="3" y1="12" x2="21" y2="12" strokeLinecap="round" />
+                <line x1="3" y1="18" x2="21" y2="18" strokeLinecap="round" />
+                </svg>
+            )}
         </button>
 
         {/* Navigation Links - Desktop: horizontal, Mobile: dropdown */}

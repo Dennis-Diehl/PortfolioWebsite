@@ -41,12 +41,30 @@
   color: #fff;
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
+  transition: transform 0.2s ease;
   display: inline-block;
+  height: 40px;  /* Logo container height */
 }
 
+
 .navbar-home:hover {
-  color: #9dd0ff;
   transform: translateY(-3px);  /* Subtle lift effect */
+  color: #9dd0ff;
+}
+
+/* Logo Image Styling */
+.navbar-logo-img {
+  height: 100%;           /* Fill the container */
+  width: auto;            /* Keep aspect ratio */
+  object-fit: contain;    /* Fit image inside container */
+  transition: filter 0.2s ease, transform 0.2s ease;
+  display: block;         /* Remove inline spacing */
+  transform-origin: center; /* Zoom from center instead of top */
+}
+
+.navbar-home:hover .navbar-logo-img {
+  filter: brightness(1.1);  /* Slightly brighter on hover */
+  transform: scale(1.10);   /* Zoom effect - 10% larger */
 }
 
 /* ===== NAVIGATION MENU (Desktop Layout) ===== */
@@ -76,37 +94,23 @@
   transform: translateY(-3px); /* Lift effect - moves up */
 }
 
-/* ===== HAMBURGER MENU BUTTON ===== */
+/* ===== MENU TOGGLE BUTTON ===== */
 .hamburger {
   display: none;             /* Hidden on desktop */
-  flex-direction: column;
   cursor: pointer;
   background: transparent;
   border: none;
   padding: 0.4rem;
-  gap: 4px;
+  color: #e6eef8;
+  transition: color 0.2s ease;
 }
 
-.hamburger span {
-  width: 22px;
-  height: 2.5px;
-  background-color: #e6eef8;
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+.hamburger:hover {
+  color: #9dd0ff;  /* Lighter blue on hover */
+}
+
+.hamburger svg {
   display: block;
-}
-
-/* Hamburger animation: transform into X shape */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(3px, 3px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;  /* Middle line disappears */
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(3px, -3px);
 }
 
 /* ============================================
@@ -116,6 +120,10 @@
   /* Show hamburger button on mobile */
   .hamburger {
     display: flex;
+  }
+
+  .navbar-home:hover {
+    transform: none;  /* Disable lift effect on mobile */
   }
 
   /* Mobile menu: hidden by default, dropdown below island */
@@ -140,6 +148,10 @@
   .nav-menu.active {
     max-height: 360px;
     padding: 0.5rem 0;
+  }
+
+  .nav-link:hover {
+    transform: none;  /* Disable lift effect on mobile */
   }
 
   .nav-item {
