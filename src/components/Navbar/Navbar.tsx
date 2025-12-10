@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
+import LogoD from '../../assets/images/Logo_D.png'
 
 /**
  * Navbar Component - Floating Island Navigation
@@ -20,7 +21,7 @@ function Navbar() {
         {/* Logo / Brand - Link to home */}
         <Link to="/" className="navbar-home">
           <img 
-            src="/src/assets/images/Logo_D.png"
+            src={LogoD}
             alt="Dennis Starting Page"
             className="navbar-logo-img"
           />
