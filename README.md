@@ -97,15 +97,6 @@ npm run lint
 
 Runs ESLint over the codebase to catch style issues and potential errors early.
 
-## Future Improvements
-
-Potential next steps and enhancements:
-
-- Additional animations and hover effects using SCSS
-- More portfolio sections (e.g. blog, skills with icons, timeline)
-- Internationalization (e.g. language switcher for English / German)
-- Contact form integration using a backend or a form service
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
