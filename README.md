@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A modern personal portfolio website for Dennis, built with **React**, **TypeScript**, **Vite**, and **SCSS (Sass)**. The app is a Single Page Application (SPA) with dedicated views for Home, About, Portfolio, and Contact, including a responsive floating navigation bar.
+A modern personal portfolio website for Dennis, built with **React 19**, **TypeScript**, **Vite 7**, and **Tailwind CSS v4**. The app is a Single Page Application (SPA) with dedicated views for Home, About, Portfolio, and Contact, including a responsive floating navigation bar.
 
 ## Table of Contents
 
@@ -17,36 +17,47 @@ A modern personal portfolio website for Dennis, built with **React**, **TypeScri
 
 - Multi-page navigation with **React Router** (Home, About, Portfolio, Contact)
 - Fixed, floating **navbar** with glassmorphism and a hamburger menu on mobile
-- Modern dark UI styled with **SCSS**
+- Modern dark UI styled with **Tailwind CSS**
 - Responsive layout for desktop, tablet, and mobile
 - Clear separation of layout (navbar, pages) and content
 
 ## Tech Stack
 
 - **Framework:** React 19 + React DOM
-- **Language:** TypeScript
-- **Bundler / Dev Server:** Vite
-- **Routing:** React Router DOM
-- **Styling:** SCSS (Sass)
-- **Linting:** ESLint with TypeScript configuration
+- **Language:** TypeScript 5.9
+- **Bundler / Dev Server:** Vite 7
+- **Routing:** React Router DOM 7
+- **Styling:** Tailwind CSS v4 (via PostCSS)
+- **Linting:** ESLint 9 with TypeScript and React plugins
 
 From `package.json`:
 
-- Main dependencies: `react`, `react-dom`, `react-router-dom`
-- Dev dependencies: `vite`, `typescript`, `sass`, `eslint`, and others
+- Main dependencies: `react` (v19), `react-dom` (v19), `react-router-dom` (v7)
+- Dev dependencies: `vite` (v7), `typescript` (v5.9), `@tailwindcss/postcss`, `eslint` (v9), and others
 
 ## Project Structure
 
 Simplified overview of the most important files and folders:
 
-- `src/main.tsx` – Entry point of the React app, imports global styles (`index.scss`)
-- `src/App.tsx` – Root app component defining routes
-- `src/components/Navbar/` – Navbar component and styles (`Navbar.scss`)
-- `src/components/Home/` – Home page components
-- `src/components/About/` – About page
-- `src/components/Portfolio/` – Portfolio/project overview
-- `src/components/Contact/` – Contact page
-- `src/assets/` – Images, logos, and other static assets
+```
+src/
+├── main.tsx              # Entry point of the React app
+├── App.tsx               # Root app component defining routes
+├── components/
+│   ├── About.tsx         # About page component
+│   ├── Contact.tsx       # Contact page component
+│   ├── Home.tsx          # Home page component
+│   ├── Navbar.tsx        # Navigation bar component
+│   └── Portfolio.tsx     # Portfolio/projects overview component
+├── assets/
+│   └── images/           # Static images and logos
+└── styles/
+    └── index.css         # Global styles with Tailwind CSS import
+```
+
+- `vite.config.ts` – Vite configuration with React plugin
+- `postcss.config.js` – PostCSS configuration for Tailwind CSS
+- `tsconfig.json` – TypeScript configuration (composite setup)
 
 ## Getting Started
 

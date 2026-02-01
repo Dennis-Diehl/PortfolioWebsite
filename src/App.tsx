@@ -1,23 +1,28 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
-import Home from './components/Home/Home'
-import About from './components/About/About'
-import Portfolio from './components/Portfolio/Portfolio'
-import Contact from './components/Contact/Contact'
-import './App.scss'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import About from './components/About'
+import Projects from './components/Projects'
+import Contact from './components/Contact'
+import './styles/index.css'
 
-function App() {
+export default function App(): React.JSX.Element {
   return (
-    <Router>
+    <div className="min-h-screen bg-gradient-to-br from-gray-800 to-gray-900">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </Router>
+      <main className="sections-container">
+        <section id="home" className="section">
+          <Home />
+        </section>
+        <section id="about" className="section">
+          <About />
+        </section>
+        <section id="projects" className="section">
+          <Projects />
+        </section>
+        <section id="contact" className="section">
+          <Contact />
+        </section>
+      </main>
+    </div>
   )
 }
-
-export default App
