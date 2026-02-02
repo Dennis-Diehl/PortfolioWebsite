@@ -15,16 +15,16 @@ html, body, #root {
 
 .sections-container {
 	scroll-snap-type: y mandatory;
+    /* padding-bottom: 10vh; /* Extra space for scrolling */
 }
 
 .section {
-	min-height: calc(100vh - var(--nav-height));
-	padding-top: var(--nav-height);
-	scroll-snap-align: start;
-	scroll-margin-top: var(--nav-height);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
 }
 
 /* Focus styles for accessibility */
