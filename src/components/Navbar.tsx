@@ -26,13 +26,14 @@ export default function Navbar() {
   const getScale = (index: number) => {
     if (hoveredIndex === null) return 1
     const distance = Math.abs(index - hoveredIndex)
-    if (distance === 0) return 1.20
-    if (distance === 1) return 1.1
-    if (distance === 2) return 1.05
+    if (distance === 0) return 1.20   // scale up the hovered item
+    if (distance === 1) return 1.1    // scale up the adjacent items
+    if (distance === 2) return 1.05   // scale up the next adjacent items
     return 1
   }
 
   return (
+    /* Navbar Container */
     <nav 
       className={`pointer-events-auto fixed left-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-gray-800/90 px-4 py-4 shadow-xl backdrop-blur-md transition-all duration-300 ${isHovered ? 'w-48' : 'w-16'}`}
       onMouseEnter={() => setIsHovered(true)}
@@ -41,6 +42,7 @@ export default function Navbar() {
         setHoveredIndex(null)
       }}
     >
+      {/* Navigation Links */}
       <ul className="flex flex-col items-center w-full">
         {navLinks.map(({ to, label, icon }, index) => {
           const id = to.replace(/^\//, '')
