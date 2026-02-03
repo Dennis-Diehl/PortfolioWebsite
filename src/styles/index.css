@@ -15,7 +15,8 @@ html, body, #root {
 
 .sections-container {
 	scroll-snap-type: y mandatory;
-    /* padding-bottom: 10vh; /* Extra space for scrolling */
+    /* padding-bottom: 5vh; /* Extra space for scrolling */
+    /* padding-top: 5vh; */
 }
 
 .section {
