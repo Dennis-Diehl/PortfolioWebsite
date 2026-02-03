@@ -7,7 +7,7 @@
  * - Zeigt aktive Section an
  */
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faEnvelope, faSuitcase } from '@fortawesome/free-solid-svg-icons'
 import { useActiveSection } from '../hooks/useActiveSection'
@@ -132,8 +132,3 @@ export default function Navbar() {
     </nav>
   )
 }
-
-/**
- * Installation (falls noch nicht vorhanden):
- * npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
- */

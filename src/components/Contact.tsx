@@ -5,9 +5,9 @@ import type { FormEvent } from "react";
 import emailjs from "@emailjs/browser"
 
 // Image imports
-import githubIcon from "../assets/git.png";
-import linkedinIcon from "../assets/linkedin.svg";
-import gmailIcon from "../assets/gmail.svg";
+import githubIcon from "../assets/images/git.png";
+import linkedinIcon from "../assets/images/linkedin.svg";
+import gmailIcon from "../assets/images/gmail.svg";
 
 // TypeScript Interfaces
 interface SocialLink {
@@ -87,7 +87,7 @@ const sendEmail = (e: FormEvent<HTMLFormElement>) => {
       variants={slideIn}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.3 }}
       className="max-w-flex rounded-2xl border border-white/10 bg-gray-800/90 p-8 shadow-xl backdrop-blur-md"
     >
       {/* Header */}
