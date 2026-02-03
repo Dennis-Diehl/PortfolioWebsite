@@ -7,7 +7,7 @@
  * - Zeigt aktive Section an
  */
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faEnvelope, faSuitcase } from '@fortawesome/free-solid-svg-icons'
 import { useActiveSection } from '../hooks/useActiveSection'
@@ -17,6 +17,8 @@ interface NavLink {
   label: string
   icon: any
 }
+
+
 
 export default function Navbar() {
   // State: Ist die Navbar gerade gehovert?
@@ -61,7 +63,7 @@ export default function Navbar() {
     <nav 
       // Fixed links, vertikal zentriert, ändert Breite beim Hover
       className={`
-        pointer-events-auto fixed left-6 top-1/2 -translate-y-1/2 z-50
+        pointer-events-auto fixed right-6 top-1/2 -translate-y-1/2 z-50
         flex flex-col items-center justify-center
         rounded-2xl border border-white/10 bg-gray-800/90 
         px-4 py-4 shadow-xl backdrop-blur-md
