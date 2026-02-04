@@ -5,9 +5,9 @@ import type { FormEvent } from "react";
 import emailjs from "@emailjs/browser"
 
 // Image imports
-import githubIcon from "../assets/images/git.png";
-import linkedinIcon from "../assets/images/linkedin.svg";
-import gmailIcon from "../assets/images/gmail.svg";
+import githubIcon from "../assets/images/contact_icons/git.png";
+import linkedinIcon from "../assets/images/contact_icons/linkedin.svg";
+import gmailIcon from "../assets/images/contact_icons/gmail.svg";
 
 // TypeScript Interfaces
 interface SocialLink {

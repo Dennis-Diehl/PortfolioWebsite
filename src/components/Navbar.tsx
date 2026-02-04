@@ -1,12 +1,3 @@
-/**
- * Navbar Component
- * 
- * Eine vertikale Navigation mit Hover-Effekten:
- * - Klappt beim Hovern auf und zeigt Text
- * - Magnifier-Effekt wie beim Apple Dock
- * - Zeigt aktive Section an
- */
-
 import { useState, useMemo } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faEnvelope, faSuitcase } from '@fortawesome/free-solid-svg-icons'
@@ -17,8 +8,6 @@ interface NavLink {
   label: string
   icon: any
 }
-
-
 
 export default function Navbar() {
   // State: Ist die Navbar gerade gehovert?
