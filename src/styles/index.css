@@ -20,12 +20,11 @@ html, body, #root {
 }
 
 .section {
-    height: 100vh;
+    min-height: 100vh;
     scroll-snap-align: start;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: auto;
 }
 
 /* Focus styles for accessibility */
@@ -42,4 +41,15 @@ button:focus-visible {
 /* Smooth transitions for navbar */
 nav {
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+
+
+/* Typing cursor animation for Home component */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
 }
