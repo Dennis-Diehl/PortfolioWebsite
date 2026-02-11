@@ -5,7 +5,7 @@ interface TechCardProps {
 
 export default function TechCard({ tech }: TechCardProps) {
   return (
-    <div className="group rounded-2xl bg-white/5 p-6 text-center transition hover:bg-white/10">
+    <div className="group w-32 shrink-0 rounded-2xl bg-white/5 p-6 text-center transition hover:bg-white/10">
       <img
         src={tech.icon}
         alt={tech.name}

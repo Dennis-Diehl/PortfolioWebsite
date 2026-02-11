@@ -6,25 +6,47 @@
 
 html {
 	scroll-behavior: smooth;
+	overscroll-behavior: none;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 
 /* Ensure root fills viewport for 100vh usage */
 html, body, #root {
 	height: 100%;
+	width: 100%;
+}
+
+body {
+	overscroll-behavior: none;
+	margin: 0;
+	padding: 0;
 }
 
 .sections-container {
 	scroll-snap-type: y mandatory;
-    /* padding-bottom: 5vh; /* Extra space for scrolling */
-    /* padding-top: 5vh; */
+	overscroll-behavior: none;
 }
 
 .section {
-    min-height: 100vh;
+    min-height: auto;
     scroll-snap-align: start;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding: 2rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+    .section {
+        min-height: 100vh;
+        align-items: center;
+        padding: 2rem 3rem;
+    }
 }
 
 /* Focus styles for accessibility */
@@ -52,4 +74,28 @@ nav {
 
 .animate-blink {
   animation: blink 1s infinite;
+}
+
+/* Infinite marquee animations */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left var(--marquee-duration, 25s) linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right var(--marquee-duration, 25s) linear infinite;
+}
+
+.marquee-container:hover > .animate-marquee-left,
+.marquee-container:hover > .animate-marquee-right {
+  animation-play-state: paused;
 }

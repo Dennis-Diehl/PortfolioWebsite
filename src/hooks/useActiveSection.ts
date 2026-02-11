@@ -6,42 +6,42 @@ export function useActiveSection(ids: string[]) {
   useEffect(() => {
     if (!ids || ids.length === 0) return
 
+    // Track welche Sections aktuell sichtbar sind (über alle Callbacks hinweg)
+    const visibleSet = new Map<string, IntersectionObserverEntry>()
+
     const observer = new IntersectionObserver(
       (entries) => {
-        // Sammle ALLE sichtbaren Sections mit ihrer Position
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .map((entry) => {
-            const rect = entry.boundingClientRect
-            return {
-              id: entry.target.id,
-              // Wie viel von der Section ist sichtbar?
-              visibleHeight: Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0),
-              // Absolute Position der Section-Mitte
-              centerY: rect.top + rect.height / 2
-            }
-          })
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            visibleSet.set(entry.target.id, entry)
+          } else {
+            visibleSet.delete(entry.target.id)
+          }
+        }
 
-        if (visibleSections.length === 0) return
+        if (visibleSet.size === 0) return
 
-        // Strategie: Wähle die Section deren Mitte am nächsten zum oberen Drittel des Viewports ist
-        // (nicht zur Viewport-Mitte, damit Sections früher aktiviert werden)
-        const triggerPoint = window.innerHeight * 0.3 // Oberes Drittel
+        const triggerPoint = window.innerHeight * 0.3
 
-        const best = visibleSections.reduce((prev, curr) => {
-          const prevDistance = Math.abs(prev.centerY - triggerPoint)
-          const currDistance = Math.abs(curr.centerY - triggerPoint)
-          return currDistance < prevDistance ? curr : prev
-        })
+        let bestId: string | null = null
+        let bestDistance = Infinity
 
-        setActive(best.id)
+        for (const [id, entry] of visibleSet) {
+          const rect = entry.target.getBoundingClientRect()
+          const centerY = rect.top + rect.height / 2
+          const distance = Math.abs(centerY - triggerPoint)
+          if (distance < bestDistance) {
+            bestDistance = distance
+            bestId = id
+          }
+        }
+
+        if (bestId) setActive(bestId)
       },
       {
         root: null,
-        // Sehr großzügiges Fenster: Nur 10% Margin oben/unten
         rootMargin: '-10% 0px -10% 0px',
-        // Viele Thresholds für kontinuierliche Updates
-        threshold: Array.from({ length: 21 }, (_, i) => i * 0.05) // 0, 0.05, 0.1, ..., 1.0
+        threshold: [0, 0.5, 1],
       }
     )
 

@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 
 import { TECH_STACK } from "../../data/techStack";
-import TechCard from "./TechCard";
+import MarqueeRow from "./MarqueeRow";
 
 export default function About() {
   return (
-    <div className="min-h-screen px-4 py-16">
-      <div className="mx-auto max-w-6xl">
+    <div className="w-full">
+      <div className="mx-auto max-w-5xl">
         <motion.h1
-          className="mb-12 text-4xl font-bold text-center text-white md:text-5xl lg:text-6xl"
+          className="mb-12 text-4xl font-bold text-center text-white md:text-3xl lg:text-6xl"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
@@ -29,7 +29,7 @@ export default function About() {
 
         <div>
           <motion.h2 
-            className="mb-8 text-3xl font-bold text-white"
+            className="mb-8 text-2xl font-bold text-white md:text-2xl lg:text-3xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -38,10 +38,15 @@ export default function About() {
             Tech Stack
           </motion.h2>
           
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {TECH_STACK.map((tech) => (
-              <TechCard key={tech.name} tech={tech} />
-            ))}
+          <div className="flex flex-col gap-6">
+            <MarqueeRow
+              items={TECH_STACK.filter((t) => t.category === "language")}
+              direction="left"
+            />
+            <MarqueeRow
+              items={TECH_STACK.filter((t) => t.category === "framework" || t.category === "tool")}
+              direction="right"
+            />
           </div>
         </div>
       </div>

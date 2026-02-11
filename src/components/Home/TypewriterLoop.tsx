@@ -42,26 +42,8 @@ export function TypewriterLoop({ texts, speed, pause }: TypewriterLoopProps) {
 
   return (
     <span>
-      {displayed} 
-      <span className="inline-block w-[1px] bg-white ml-1 animate-blink">&nbsp;</span> 
+      {displayed}
+      <span className="inline-block w-[1px] bg-white ml-1 animate-blink">&nbsp;</span>
     </span>
-  );
-};
-
-export default function Home() {
-  const texts = [
-    "B. Sc. Computer Science @ JGU Mainz 26'",
-    "M. Sc. Artificial Intelligence & Data Science @ Uni Stuttgart"
-  ];
-
-  return (
-    <main className="flex flex-col items-center justify-center min-h-screen px-4">
-      <h1 className="text-5xl font-bold text-white mb-4">
-        Hi, I'm Dennis
-      </h1>
-      <p className="text-lg md:text-xl text-gray-300 text-center">
-        <TypewriterLoop texts={texts} speed={55} pause={2000} />
-      </p>
-    </main>
   );
 }

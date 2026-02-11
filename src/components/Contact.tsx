@@ -3,19 +3,7 @@ import type { Variants } from "framer-motion";
 import { useRef } from "react";
 import type { FormEvent } from "react";
 import emailjs from "@emailjs/browser"
-
-// Image imports
-import githubIcon from "../assets/images/contact_icons/git.png";
-import linkedinIcon from "../assets/images/contact_icons/linkedin.svg";
-import gmailIcon from "../assets/images/contact_icons/gmail.svg";
-
-// TypeScript Interfaces
-interface SocialLink {
-  href: string;
-  icon: string;
-  alt: string;
-  className?: string;
-}
+import { socialLinks } from "../data/socialLinks";
 
 
 const Contact: React.FC = () => {
@@ -25,38 +13,17 @@ const Contact: React.FC = () => {
   // Animation Variants mit TypeScript
   const slideIn: Variants = {
     hidden: { x: -100, opacity: 0 },
-    visible: { 
-      x: 0, 
+    visible: {
+      x: 0,
       opacity: 1,
       transition: {
         type: "tween",
         duration: 1,
         delay: 0.2
       }
+      
     }
   };
-
-  // Social Media Links mit TypeScript
-  const socialLinks: SocialLink[] = [
-    {
-      href: "https://github.com/Dennis-Diehl",
-      icon: githubIcon,
-      alt: "GitHub",
-      className: "w-20 h-20"
-    },
-    {
-      href: "https://www.linkedin.com/in/de-diehl/",
-      icon: linkedinIcon,
-      alt: "LinkedIn",
-      className: "w-24 h-24"
-    },
-    {
-      href: "mailto:dediehl@gmx.de",
-      icon: gmailIcon,
-      alt: "Gmail",
-      className: "w-16 h-16"
-    }
-  ];
 
 // Handle form submission
 const sendEmail = (e: FormEvent<HTMLFormElement>) => {
