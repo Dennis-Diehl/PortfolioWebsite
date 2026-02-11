@@ -33,39 +33,4 @@ export const PROJECTS: readonly Project[] = [
     githubUrl: "https://github.com/Dennis-Diehl/PortfolioWebsite",
     liveUrl: "https://dennisd-portfolio.vercel.app/",
   },
-  {
-    id: "project-2",
-    title: "Data Pipeline Engine",
-    shortDescription:
-      "A scalable data processing pipeline built with Apache Spark and Scala for real-time analytics.",
-    longDescription:
-      "This project implements a high-throughput data pipeline capable of processing millions of records in near real-time. It leverages Apache Spark for distributed computing and includes custom transformations, data quality checks, and automated reporting dashboards.",
-    image: "https://placehold.co/600x400/1f2937/e5e7eb?text=Data+Pipeline",
-    techStack: ["Scala", "Apache Spark", "SQL", "Python"],
-    features: [
-      "Real-time stream processing with Spark Structured Streaming",
-      "Automated data quality validation",
-      "Custom ETL transformations",
-      "Interactive analytics dashboard",
-    ],
-    githubUrl: "https://github.com",
-  },
-  {
-    id: "project-3",
-    title: "Task Management App",
-    shortDescription:
-      "A full-stack task management application with real-time updates and collaborative features.",
-    longDescription:
-      "A productivity application that helps teams organize and track their work. Features include drag-and-drop task boards, real-time collaboration, priority management, and deadline tracking with notifications.",
-    image: "https://placehold.co/600x400/1f2937/e5e7eb?text=Task+App",
-    techStack: ["React", "TypeScript", "Tailwind CSS", "SQL"],
-    features: [
-      "Drag-and-drop Kanban boards",
-      "Real-time collaborative editing",
-      "Priority and deadline management",
-      "Activity log and notifications",
-    ],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-  },
 ];
