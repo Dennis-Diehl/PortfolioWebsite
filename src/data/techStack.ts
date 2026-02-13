@@ -54,8 +54,13 @@ export const TECH_STACK: readonly TechStackItem[] = [
     category: "framework",
   },
   {
-    name: "Framer Motion",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg",
+    name: "FastAPI",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+    category: "framework",
+  },
+  {
+    name: "Streamlit",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg",
     category: "framework",
   },
 
