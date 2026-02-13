@@ -140,6 +140,3 @@ Runs ESLint over the codebase to catch style issues and potential errors early.
 
 This project is licensed under the [MIT License](LICENSE).
 
----
-
-Thank you for checking out my Coding Portfolio! If you have any questions or feedback, feel free to reach out.
