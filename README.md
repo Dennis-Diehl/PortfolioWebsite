@@ -1,6 +1,14 @@
 # Portfolio Website
 
-A modern personal portfolio website for Dennis, built with **React 19**, **TypeScript**, **Vite 7**, and **Tailwind CSS v4**. The app is a scroll-snap single-page application with sections for Home, About, Projects, and Contact, navigated via anchor links.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge)](https://dennisd-portfolio.vercel.app/)
+
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?logo=vercel&logoColor=white)
+
+My personal portfolio — a scroll-snap single-page app with sections for Home, About, Projects, and Contact. Built with React 19, TypeScript, Vite 7, and Tailwind CSS v4.
 
 ## Table of Contents
 
@@ -117,6 +125,8 @@ Starts a local server that serves the content from `dist/`, which is useful for 
 ### Deployment
 
 The site is deployed on **Vercel**. Every push to `main` triggers an automatic production deployment.
+
+**Live:** [dennisd-portfolio.vercel.app](https://dennisd-portfolio.vercel.app/)
 
 ## Code Quality
 
