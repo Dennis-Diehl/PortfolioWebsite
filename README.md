@@ -8,7 +8,7 @@
 ![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?logo=vercel&logoColor=white)
 
-My personal portfolio — a scroll-snap single-page app with sections for Home, About, Projects, and Contact. Built with React 19, TypeScript, Vite 7, and Tailwind CSS v4.
+My personal portfolio website — featuring smooth scroll-snap navigation, a macOS dock-style navbar, and interactive project cards.
 
 ## Table of Contents
 
@@ -125,8 +125,6 @@ Starts a local server that serves the content from `dist/`, which is useful for 
 ### Deployment
 
 The site is deployed on **Vercel**. Every push to `main` triggers an automatic production deployment.
-
-**Live:** [dennisd-portfolio.vercel.app](https://dennisd-portfolio.vercel.app/)
 
 ## Code Quality
 
