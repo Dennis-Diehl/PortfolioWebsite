@@ -49,13 +49,13 @@ export const TECH_STACK: readonly TechStackItem[] = [
     category: "framework",
   },
   {
-    name: "Apache Spark",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg",
+    name: "FastAPI",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
     category: "framework",
   },
   {
-    name: "FastAPI",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+    name: "Flask",
+    icon: "https://skillicons.dev/icons?i=flask",
     category: "framework",
   },
   {
@@ -63,11 +63,21 @@ export const TECH_STACK: readonly TechStackItem[] = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg",
     category: "framework",
   },
+  {
+    name: "Apache Spark",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg",
+    category: "framework",
+  },
 
   // Developer Tools
   {
     name: "Git",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    category: "tool",
+  },
+  {
+    name: "MySQL",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
     category: "tool",
   },
 ];
