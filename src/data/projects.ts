@@ -1,5 +1,6 @@
 import PortfolioIMG from "../assets/images/project_images/PortfolioIMG.png";
 import BudgetRouterIMG from "../assets/images/project_images/BudgetRouterIMG.png";
+import MarketplaceIMG from "../assets/images/project_images/MarketplaceIMG.png";
 
 export interface Project {
   id: string;
@@ -62,5 +63,28 @@ export const PROJECTS: readonly Project[] = [
       "Support for 4 models: LLaMA 70B, GPT-OSS 120B/20B, LLaMA 8B",
     ],
     githubUrl: "https://github.com/Dennis-Diehl/ai-model-api-budget-router",
+  },
+  {                                                                                                                                                                       
+    id: "online-marketplace",                                                                                                                                           
+    title: "Online Marketplace",                                                                                                                                          
+    shortDescription:                                                                                                                                                     
+      "A full-stack marketplace web app where users can buy and sell products — built as a university database project.",                                                 
+    longDescription:                                                                                                                                                      
+      "A Flask-based online marketplace supporting two user roles: buyers and sellers. Buyers can browse products, manage a shopping cart and wishlist, place orders" +
+      "write reviews, and message sellers directly. Sellers can list and manage products, view sales statistics, and receive notifications when subscribed users engage with" +
+      "their shop. The app features a self-referential category hierarchy, session-based authentication, and a normalized MariaDB schema.",
+    image: MarketplaceIMG,
+    techStack: ["Python", "Flask", "MySQL", "HTML", "CSS", "JavaScript"],
+    features: [
+      "Buyer & seller roles with session-based authentication",
+      "Product listing, search, and category filtering",
+      "Persistent shopping cart and wishlist",
+      "Order management for buyers and sellers",
+      "Direct messaging between users",
+      "Seller subscription & new product notifications",
+      "Sales and product statistics with charts",
+      "Review system for purchased products",
+    ],
+    githubUrl: "https://github.com/Dennis-Diehl/online-marketplace",
   },
 ];

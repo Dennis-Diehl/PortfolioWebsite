@@ -17,6 +17,11 @@ export const TECH_STACK: readonly TechStackItem[] = [
     category: "language",
   },
   {
+    name: "JavaScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    category: "language",
+  },
+  {
     name: "SQL",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg",
     category: "language",
