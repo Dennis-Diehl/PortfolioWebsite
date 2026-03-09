@@ -1,6 +1,7 @@
 import PortfolioIMG from "../assets/images/project_images/PortfolioIMG.png";
 import BudgetRouterIMG from "../assets/images/project_images/BudgetRouterIMG.png";
 import MarketplaceIMG from "../assets/images/project_images/MarketplaceIMG.png";
+import SmartDocumentAgentIMG from "../assets/images/project_images/SmartDocumentAgentIMG.png";
 
 export interface Project {
   id: string;
@@ -15,25 +16,34 @@ export interface Project {
 }
 
 export const PROJECTS: readonly Project[] = [
-  {
-    id: "portfolio-website",
-    title: "Portfolio Website",
+  {                        
+    id: "smart-document-agent",
+    title: "Smart Document Agent",                                                                                                                                      
     shortDescription:
-      "A modern, interactive portfolio with smooth scroll-snap navigation and modern animations built in React and Tailwind CSS.",
-    longDescription:
-      `This portfolio website showcases my work and skills with a focus on smooth interactions and modern web technologies.
-       It features a macOS dock-style navbar, scroll-snap sections, and animated tech stack marquees. 
-       The contact form integrates EmailJS for direct messaging.`,
-    image: PortfolioIMG,
-    techStack: ["React", "TypeScript", "Tailwind CSS"],
-    features: [
-      "Scroll-snap navigation with intersection observer",
-      "macOS dock-style magnifier navbar",
-      "Animated tech stack marquee",
-      "EmailJS contact form integration",
+      "Ask questions about your PDF documents and get precise answers with source references — powered by LangChain, ChromaDB and Llama 3.3.",                          
+    longDescription:                                                                                                                                                  
+      "A local RAG (Retrieval-Augmented Generation) application that lets you upload one or multiple " +
+      "PDF documents and query them via a chat interface. Built with a fully manual LangChain pipeline — " +
+      "from document loading and chunking to embedding, vector retrieval and LLM inference — without " +
+      "high-level abstractions, for maximum transparency and control. Answers include the exact source " +
+      "chunks (page number and text excerpt) they were derived from.",
+    image: SmartDocumentAgentIMG,
+    techStack: [
+      "Python",
+      "LangChain",
+      "ChromaDB",
+      "Streamlit",
     ],
-    githubUrl: "https://github.com/Dennis-Diehl/PortfolioWebsite",
-    liveUrl: "https://dennisd-portfolio.vercel.app/",
+    features: [
+      "PDF upload with automatic duplicate detection",
+      "Three retrieval strategies: Similarity, MMR, and Multi-Query",
+      "Dual LLM support: Llama 3.3 via Groq and OpenRouter — switchable at runtime",
+      "Source attribution: every answer shows the originating page and text excerpt",
+      "Persistent vector store — embeddings survive app restarts",
+      "Manual RAG pipeline without high-level abstractions for full transparency",
+    ],
+    githubUrl: "https://github.com/Dennis-Diehl/smart-document-agent",
+    liveUrl: "https://smart-document-agent.streamlit.app/",
   },
   {
     id: "ai-model-budget-router",
@@ -63,6 +73,7 @@ export const PROJECTS: readonly Project[] = [
       "Support for 4 models: LLaMA 70B, GPT-OSS 120B/20B, LLaMA 8B",
     ],
     githubUrl: "https://github.com/Dennis-Diehl/ai-model-api-budget-router",
+    liveUrl: "https://ai-api-budget-router.streamlit.app/",
   },
   {                                                                                                                                                                       
     id: "online-marketplace",                                                                                                                                           
@@ -86,5 +97,25 @@ export const PROJECTS: readonly Project[] = [
       "Review system for purchased products",
     ],
     githubUrl: "https://github.com/Dennis-Diehl/online-marketplace",
+  },
+    {
+    id: "portfolio-website",
+    title: "Portfolio Website",
+    shortDescription:
+      "A modern, interactive portfolio with smooth scroll-snap navigation and modern animations built in React and Tailwind CSS.",
+    longDescription:
+      `This portfolio website showcases my work and skills with a focus on smooth interactions and modern web technologies.
+       It features a macOS dock-style navbar, scroll-snap sections, and animated tech stack marquees. 
+       The contact form integrates EmailJS for direct messaging.`,
+    image: PortfolioIMG,
+    techStack: ["React", "TypeScript", "Tailwind CSS"],
+    features: [
+      "Scroll-snap navigation with intersection observer",
+      "macOS dock-style magnifier navbar",
+      "Animated tech stack marquee",
+      "EmailJS contact form integration",
+    ],
+    githubUrl: "https://github.com/Dennis-Diehl/PortfolioWebsite",
+    liveUrl: "https://dennisd-portfolio.vercel.app/",
   },
 ];

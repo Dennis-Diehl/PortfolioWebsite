@@ -12,6 +12,16 @@ export const TECH_STACK: readonly TechStackItem[] = [
     category: "language",
   },
   {
+    name: "SQL",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg",
+    category: "language",
+  },
+  {
+    name: "Scala",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scala/scala-original.svg",
+    category: "language",
+  },
+  {
     name: "TypeScript",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
     category: "language",
@@ -21,11 +31,7 @@ export const TECH_STACK: readonly TechStackItem[] = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
     category: "language",
   },
-  {
-    name: "SQL",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg",
-    category: "language",
-  },
+
   {
     name: "HTML",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
@@ -36,14 +42,9 @@ export const TECH_STACK: readonly TechStackItem[] = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
     category: "language",
   },
-  {
-    name: "Scala",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scala/scala-original.svg",
-    category: "language",
-  },
 
   // Frameworks/Libraries
-  {
+    {
     name: "React",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     category: "framework",
@@ -51,6 +52,21 @@ export const TECH_STACK: readonly TechStackItem[] = [
   {
     name: "Tailwind CSS",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    category: "framework",
+  },
+  {
+    name: "Streamlit",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg",
+    category: "framework",
+  },
+  {
+    name: "LangChain",
+    icon: "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/langchain-ipuhh4qo1jz5ssl4x0g2a.png/langchain-dp1uxj2zn3752pntqnpfu2.png?_a=DATAiZAAZAA0",
+    category: "framework",
+  },
+  {
+    name: "ChromaDB",
+    icon: "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/1/chroma-erzavigj9yrwcd5lup0swm.png/chroma-1xw4nxhjo4c64ndhrqtxp.png?_a=DATAiZAAZAA0",
     category: "framework",
   },
   {
@@ -64,15 +80,11 @@ export const TECH_STACK: readonly TechStackItem[] = [
     category: "framework",
   },
   {
-    name: "Streamlit",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg",
-    category: "framework",
-  },
-  {
     name: "Apache Spark",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg",
     category: "framework",
   },
+
 
   // Developer Tools
   {
