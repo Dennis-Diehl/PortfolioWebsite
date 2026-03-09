@@ -80,6 +80,11 @@ export const TECH_STACK: readonly TechStackItem[] = [
     category: "framework",
   },
   {
+    name: "SQLAlchemy",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original-wordmark.svg",
+    category: "framework",
+  },
+  {
     name: "Apache Spark",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg",
     category: "framework",
