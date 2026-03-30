@@ -36,16 +36,6 @@
 
 ---
 
-## Featured Projects
-
-| Project | Description | Stack | Links |
-|---|---|---|---|
-| **Smart Document Agent** | Local RAG app — query PDFs via chat with source attribution | Python, LangChain, ChromaDB, Streamlit | [GitHub](https://github.com/Dennis-Diehl/smart-document-agent) · [Demo](https://smart-document-agent.streamlit.app/) |
-| **AI Model Budget Router** | Smart LLM routing based on budget, task type & quality | Python, FastAPI, Streamlit | [GitHub](https://github.com/Dennis-Diehl/ai-model-api-budget-router) · [Demo](https://ai-api-budget-router.streamlit.app/) |
-| **Online Marketplace** | Full-stack buy/sell platform with buyer & seller roles | Python, Flask, MySQL | [GitHub](https://github.com/Dennis-Diehl/online-marketplace) |
-
----
-
 ## Tech Stack
 
 | Category | Technology |
