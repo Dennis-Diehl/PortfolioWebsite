@@ -2,6 +2,7 @@ import PortfolioIMG from "../assets/images/project_images/PortfolioIMG.png";
 import BudgetRouterIMG from "../assets/images/project_images/BudgetRouterIMG.png";
 import MarketplaceIMG from "../assets/images/project_images/MarketplaceIMG.png";
 import SmartDocumentAgentIMG from "../assets/images/project_images/SmartDocumentAgentIMG.png";
+import NewsletterAgentIMG from "../assets/images/project_images/NewsletterAgentIMG.png";
 
 export interface Project {
   id: string;
@@ -16,15 +17,48 @@ export interface Project {
 }
 
 export const PROJECTS: readonly Project[] = [
-  {                        
+  {
+    id: "ai-newsletter-agent",
+    title: "AI Newsletter Agent",
+    shortDescription:
+      "Agentic workflow that researches, scores, and summarises the week's most relevant AI industry news and delivers a structured report straight to your inbox.",
+    longDescription:
+      "An autonomous market intelligence agent built with LangGraph that orchestrates a five-node pipeline " +
+      "from search to email delivery. The system queries the Tavily API for news across 18 target companies, " +
+      "scrapes full article content using a hybrid Trafilatura and stealth Playwright strategy to bypass " +
+      "paywalls and bot detection, and scores each article 1–10 for relevance before any LLM call. " +
+      "Google Gemini 2.5 Flash then generates a structured HTML newsletter with an executive summary and " +
+      "per-company reports, enforcing source-only citations to prevent hallucinated links. " +
+      "The final newsletter is rendered to PDF in memory via headless Chromium and delivered via Gmail SMTP.",
+    image: NewsletterAgentIMG,
+    techStack: [
+      "Python",
+      "LangGraph",
+      "Streamlit",
+    ],
+    features: [
+      "Five-node LangGraph pipeline: Research → Scraper → Summarizer → Writer → Publisher",
+      "Hybrid scraping strategy with Trafilatura and stealth Playwright fallback",
+      "Paywall and bot-detection bypass via playwright-stealth",
+      "Two-step scoring pipeline: relevance scoring before summarization",
+      "Staleness detection for breaking news older than 14 days",
+      "Source-only citation enforcement to prevent LLM hallucinations",
+      "HTML newsletter with executive summary and detailed company reports",
+      "In-memory PDF generation via headless Chromium",
+      "Gmail SMTP delivery with retry logic and exponential backoff",
+      "Streamlit UI and headless entry point via main.py",
+    ],
+    githubUrl: "https://github.com/Dennis-Diehl/ai-newsletter-agent",
+  },
+  {
     id: "smart-document-agent",
     title: "Smart Document Agent",                                                                                                                                      
     shortDescription:
-      "Ask questions about your PDF documents and get precise answers with source references — powered by LangChain, ChromaDB and Llama 3.3.",                          
-    longDescription:                                                                                                                                                  
+      "Ask questions about your PDF documents and get precise answers with source references, powered by LangChain, ChromaDB and Llama 3.3.",
+    longDescription:
       "A local RAG (Retrieval-Augmented Generation) application that lets you upload one or multiple " +
-      "PDF documents and query them via a chat interface. Built with a fully manual LangChain pipeline — " +
-      "from document loading and chunking to embedding, vector retrieval and LLM inference — without " +
+      "PDF documents and query them via a chat interface. Built with a fully manual LangChain pipeline " +
+      "from document loading and chunking to embedding, vector retrieval and LLM inference, without " +
       "high-level abstractions, for maximum transparency and control. Answers include the exact source " +
       "chunks (page number and text excerpt) they were derived from.",
     image: SmartDocumentAgentIMG,
@@ -37,9 +71,9 @@ export const PROJECTS: readonly Project[] = [
     features: [
       "PDF upload with automatic duplicate detection",
       "Three retrieval strategies: Similarity, MMR, and Multi-Query",
-      "Dual LLM support: Llama 3.3 via Groq and OpenRouter — switchable at runtime",
+      "Dual LLM support: Llama 3.3 via Groq and OpenRouter, switchable at runtime",
       "Source attribution: every answer shows the originating page and text excerpt",
-      "Persistent vector store — embeddings survive app restarts",
+      "Persistent vector store: embeddings survive app restarts",
       "Manual RAG pipeline without high-level abstractions for full transparency",
     ],
     githubUrl: "https://github.com/Dennis-Diehl/smart-document-agent",
@@ -79,7 +113,7 @@ export const PROJECTS: readonly Project[] = [
     id: "online-marketplace",                                                                                                                                           
     title: "Online Marketplace",                                                                                                                                          
     shortDescription:                                                                                                                                                     
-      "A full-stack marketplace web app where users can buy and sell products — built as a university database project.",                                                 
+      "A full-stack marketplace web app where users can buy and sell products, built as a university database project.",                                                 
     longDescription:                                                                                                                                                      
       "A Flask-based online marketplace supporting two user roles: buyers and sellers. Buyers can browse products, manage a shopping cart and wishlist, place orders" +
       "write reviews, and message sellers directly. Sellers can list and manage products, view sales statistics, and receive notifications when subscribed users engage with" +
