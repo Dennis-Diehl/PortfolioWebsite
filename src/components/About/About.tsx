@@ -20,9 +20,9 @@ export default function About() {
         <p 
           className="mx-auto mb-20 max-w-5xl text-center text-lg leading-relaxed text-gray-300 md:text-xl lg:text-2xl"
         >
-          I'm a computer science student with a focus on exploring machine learning through hands-on Python projects. 
-          Currently developing skills in React and Tailwind CSS for frontend development, with plans to expand backend expertise
-          in Java Spring Boot and Python, while also learning PostgreSQL and Docker. 
+          I am a final-year computer science student at JGU Mainz, completing my Bachelor of Science in Computer Science. 
+          I will start a Master's degree focused on Artificial Intelligence and Data Science in Winter 2026. I focus on software development, 
+          with a strong interest in building practical AI applications using LLMs and Generative AI while working across the full stack with React, FastAPI, PostgreSQL, and Docker to bring AI-powered ideas to life. 
           Committed to continuous growth and deepening technical proficiency, while also being a team player with strong communication skills.
         </p>
 

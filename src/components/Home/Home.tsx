@@ -3,7 +3,7 @@ import { TypewriterLoop } from "./TypewriterLoop";
 export default function Home() {
   const texts = [
     "B. Sc. Computer Science 26' @ JGU Mainz",
-    "M. Sc. Artificial Intelligence & Data Science @ Uni Stuttgart"
+    "M. Sc. Artificial Intelligence & Data Science"
   ];
 
   return (
