@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Pre-push guard: block the push if any check fails, so broken code never
+# reaches GitHub (and therefore never triggers a Vercel deploy).
+#
+# Activate once with:
+#   git config core.hooksPath .githooks
+#
+set -euo pipefail
+
+echo "▶ pre-push: lint"
+pnpm lint
+
+echo "▶ pre-push: typecheck"
+pnpm typecheck
+
+echo "▶ pre-push: unit tests"
+pnpm test
+
+echo "▶ pre-push: build"
+pnpm build
+
+echo "✓ pre-push checks passed"

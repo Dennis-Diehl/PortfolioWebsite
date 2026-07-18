@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* Dark theme (VS Code "Dark+" inspired) is the default palette. */
+:root {
+  --editor-bg: #1e1e1e;
+  --editor-fg: #d4d4d4;
+  --sidebar-bg: #252526;
+  --sidebar-fg: #cccccc;
+  --activitybar-bg: #333333;
+  --titlebar-bg: #3c3c3c;
+  --statusbar-bg: #007acc;
+  --statusbar-fg: #ffffff;
+  --tabbar-bg: #252526;
+  --tab-bg: #2d2d2d;
+  --tab-active-bg: #1e1e1e;
+  --tab-active-fg: #ffffff;
+  --tab-inactive-fg: #969696;
+  --tab-border: #252526;
+  --border: #3c3c3c;
+  --accent: #ce9178;
+  --accent-blue: #4ec9b0;
+  --link: #4daafc;
+  --hover-bg: #2a2d2e;
+  --selection-bg: #264f78;
+  --muted: #858585;
+  --mark-bg: #613214;
+  --mark-fg: #ffd7a8;
+  --scrollbar: #424242;
+
+  /* Syntax accents for the JSON / code views */
+  --syntax-key: #9cdcfe;
+  --syntax-string: #ce9178;
+  --syntax-number: #b5cea8;
+  --syntax-punctuation: #808080;
+  --syntax-comment: #6a9955;
+}
+
+.light {
+  --editor-bg: #ffffff;
+  --editor-fg: #1f1f1f;
+  --sidebar-bg: #f3f3f3;
+  --sidebar-fg: #3b3b3b;
+  --activitybar-bg: #f8f8f8;
+  --titlebar-bg: #dddddd;
+  --statusbar-bg: #005fb8;
+  --statusbar-fg: #ffffff;
+  --tabbar-bg: #f3f3f3;
+  --tab-bg: #ececec;
+  --tab-active-bg: #ffffff;
+  --tab-active-fg: #333333;
+  --tab-inactive-fg: #6f6f6f;
+  --tab-border: #e5e5e5;
+  --border: #d4d4d4;
+  --accent: #a31515;
+  --accent-blue: #007acc;
+  --link: #0066bf;
+  --hover-bg: #e8e8e8;
+  --selection-bg: #add6ff;
+  --muted: #6f6f6f;
+  --mark-bg: #fff2a8;
+  --mark-fg: #5c3b00;
+  --scrollbar: #c1c1c1;
+
+  --syntax-key: #0451a5;
+  --syntax-string: #a31515;
+  --syntax-number: #098658;
+  --syntax-punctuation: #7a7a7a;
+  --syntax-comment: #008000;
+}
+
+@theme inline {
+  --color-editor-bg: var(--editor-bg);
+  --color-editor-fg: var(--editor-fg);
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-sidebar-fg: var(--sidebar-fg);
+  --color-activitybar-bg: var(--activitybar-bg);
+  --color-titlebar-bg: var(--titlebar-bg);
+  --color-statusbar-bg: var(--statusbar-bg);
+  --color-statusbar-fg: var(--statusbar-fg);
+  --color-tabbar-bg: var(--tabbar-bg);
+  --color-tab-bg: var(--tab-bg);
+  --color-tab-active-bg: var(--tab-active-bg);
+  --color-tab-active-fg: var(--tab-active-fg);
+  --color-tab-inactive-fg: var(--tab-inactive-fg);
+  --color-tab-border: var(--tab-border);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-blue: var(--accent-blue);
+  --color-link: var(--link);
+  --color-hover: var(--hover-bg);
+  --color-selection: var(--selection-bg);
+  --color-muted: var(--muted);
+
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", "Cascadia Code",
+    "Fira Code", Menlo, Consolas, monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background-color: var(--editor-bg);
+  color: var(--editor-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+}
+
+/* Thin VS Code-style scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+mark {
+  background-color: var(--mark-bg);
+  color: var(--mark-fg);
+  border-radius: 2px;
+}
+
+/*
+ * Tab bar: a thin horizontal scrollbar that sits in its own lane below the tabs
+ * (the container is taller than the tabs) so it never overlaps the tab labels.
+ */
+.tabbar-scroll {
+  scrollbar-width: thin;
+}
+.tabbar-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.tabbar-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar);
+  border-radius: 3px;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
