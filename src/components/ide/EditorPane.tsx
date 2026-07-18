@@ -2,7 +2,6 @@
 
 import type { ReactNode } from "react";
 import { useIde } from "./ide-context";
-import { OnboardingHint } from "./OnboardingHint";
 import { EmptyEditorState } from "./EmptyEditorState";
 
 /**
@@ -16,7 +15,6 @@ export function EditorPane({ children }: { children: ReactNode }) {
   return (
     <main id="editor-content" className="relative min-h-0 flex-1 overflow-y-auto bg-editor-bg">
       {openFiles.length === 0 ? <EmptyEditorState /> : children}
-      <OnboardingHint />
     </main>
   );
 }
