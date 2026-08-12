@@ -8,8 +8,8 @@ export const ABOUT_BIO = {
   // Original bio, shown at the top of the README (About page was merged in).
   paragraphs: [
     "I am a final-year computer science student at JGU Mainz, completing my Bachelor of Science in " +
-      "Computer Science. I will start a Master's degree focused on Artificial Intelligence and Data " +
-      "Science in Winter 2026.",
+      "Computer Science.",
+    // "I will start a Master's degree focused on Artificial Intelligence and Data Science in Winter 2026.",
     "Here's where my interest is currently focused:",
   ],
   // Ordered by priority — GenAI/LLMs first, full-stack AI apps last as a
@@ -48,6 +48,6 @@ export const ABOUT_BIO = {
   // Phrases cycled through the hero typing animation.
   typingPhrases: [
     "Bachelor of Science Computer Science",
-    "Master of Science Artificial Intelligence and Data Science",
+    // "Master of Science Artificial Intelligence and Data Science",
   ],
 } as const;
