@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { EDUCATION } from "@/content/education";
 import { getProject } from "@/content/projects";
+import { getTechIcon } from "@/content/techStack";
 import { ABOUT_BIO } from "@/content/about";
 import { SOCIAL_LINKS } from "@/content/socialLinks";
 import { OpenInEditorLink } from "../OpenInEditorLink";
@@ -42,7 +43,7 @@ export function ReadmeView() {
                   {h.title}
                 </p>
                 {h.subItems && (
-                  <ul className="ml-7 mt-1 list-disc space-y-0.5 text-sm text-muted marker:text-muted">
+                  <ul className="ml-7 mt-1 list-disc space-y-0.5 text-base text-muted marker:text-muted">
                     {h.subItems.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -78,7 +79,7 @@ export function ReadmeView() {
           <h2 className="text-2xl font-bold text-editor-fg">Projects</h2>
           <span className="font-mono text-xs text-muted">projects/</span>
         </div>
-        <p className="mb-4 text-sm text-muted">
+        <p className="mb-4 text-base text-muted">
           Here are the two most recent projects. The rest can be explored using the file
           explorer or file tree on the left.
         </p>
@@ -102,16 +103,23 @@ export function ReadmeView() {
                 <h3 className="mb-1 font-semibold text-editor-fg group-hover:text-link group-hover:underline">
                   {project.title}
                 </h3>
-                <p className="mb-3 line-clamp-2 text-sm text-muted">{project.shortDescription}</p>
+                <p className="mb-3 line-clamp-2 text-base text-muted">{project.shortDescription}</p>
                 <ul className="flex flex-wrap gap-1.5">
-                  {project.techStack.slice(0, 4).map((t) => (
-                    <li
-                      key={t}
-                      className="rounded bg-editor-bg px-2 py-0.5 font-mono text-[11px] text-muted"
-                    >
-                      {t}
-                    </li>
-                  ))}
+                  {project.techStack.slice(0, 4).map((t) => {
+                    const icon = getTechIcon(t);
+                    return (
+                      <li
+                        key={t}
+                        className="inline-flex items-center gap-1 rounded border border-border bg-editor-bg px-1.5 py-0.5 text-[11px] text-muted"
+                      >
+                        {icon && (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={icon} alt="" width={12} height={12} className="h-3 w-3" />
+                        )}
+                        {t}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </OpenInEditorLink>
